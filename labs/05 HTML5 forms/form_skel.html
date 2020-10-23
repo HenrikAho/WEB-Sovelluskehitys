@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 	<!--
 	This page demonstrates a form.
 	-->
 	<head>
 		<meta charset="utf-8"/>
+		<link href="form.css" type="text/css" rel="stylesheet" />
 		<title>Demonstrating HTML forms</title>
 	</head>
 	
@@ -12,49 +13,49 @@
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
 			<div>
-				Name: <input type="text" name="studentname"/>
+				Name: <input type="text" name="studentname" placeholder="Matti Marakas"/>
 			</div>
 			<div>
-				Student id: <input type="text" name="id"  />
+				Student id: <input type="text" pattern="\d{7}" name="id" placeholder="1234567"/>
 			</div>
 			<div>
-				Email:
-				<!--
-				Make an input named "email"
-				-->
+				Email: <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="email" placeholder="matti.marakas@metropolia.fi" />
+
 			</div>
 			<div>
-				Assignment:
-				<!--
-				Make an input named "assignment"
-				-->
-				
+				Assignment: <input type="text" name="assignment" placeholder="tehtäväsi" />
+
 			</div>
 
 			<div>
-				Code:
-				<!--
-				Make an input named "code" which is a text area to put student's code into.
-				-->
-				
+				Code: <input type="textarea" name="code" placeholder="koodisi"/>
+
 			</div>
 			<div>
-				Cheat:
-			<!--
-				Make an input named "cheat" which is a check box the student must check.
-			-->
+				<label>Cheat: <input type="checkbox" name="cheat"/></label>
+
 			</div>
 			<div>
-				Pay:
-			<!--
-				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
-			-->
+
+				<form action="">
+				<fieldset>
+					<legend>Pay</legend>
+					<label><input type="radio" name="payment" value="visa"  />Visa</label><br>
+					<label><input type="radio" name="payment" value="paypal"  />Paypal</label><br>
+					<label><input type="radio" name="payment" value="mastercard"  />Mastercard</label>
+				</fieldset>
+				</form>
+
 			</div>
 			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
+				Score: <select name="score">
+				<option value="1"> 1 </option>
+				<option value="2"> 2 </option>
+				<option value="3"> 3 </option>
+				<option value="4"> 4 </option>
+				<option value="5"> 5 </option>
+			</select>
+
 			</div>
 			<input type="submit" />
 		</form>
