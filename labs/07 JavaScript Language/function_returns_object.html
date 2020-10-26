@@ -5,36 +5,62 @@
   <title>Object-o-matic</title>
   <script>
 	function makeCar() {
-		var makes = ["Chevy", "GM", "Fiat", "Webville Motors", "Tucker"];
-		var models = ["Cadillac", "500", "Bel-Air", "Taxi", "Torpedo"];
-		var years = [1955, 1957, 1948, 1954, 1961];
-		var colors = ["red", "blue", "tan", "yellow", "white"];
-		var convertible = [true, false];
+		let makes = ["Chevy", "GM", "Fiat", "Webville Motors", "Tucker"];
+		let models = ["Cadillac", "500", "Bel-Air", "Taxi", "Torpedo"];
+		let years = [1955, 1957, 1948, 1954, 1961];
+		let colors = ["red", "blue", "tan", "yellow", "white"];
+		let convertible = [true, false];
 
-		var rand1 = Math.floor(Math.random() * makes.length);
-		var rand2 = Math.floor(Math.random() * models.length);
-		var rand3 = Math.floor(Math.random() * years.length);
-		var rand4 = Math.floor(Math.random() * colors.length);
-		var rand5 = Math.floor(Math.random() * 5);
-		var rand6 = Math.floor(Math.random() * 2);
+		let rand1 = Math.floor(Math.random() * makes.length);
+		let rand2 = Math.floor(Math.random() * models.length);
+		let rand3 = Math.floor(Math.random() * years.length);
+		let rand4 = Math.floor(Math.random() * colors.length);
+		let rand5 = Math.floor(Math.random() * 5);
+		let rand6 = Math.floor(Math.random() * 2);
 
-		var car = {
+        let eng = makeEngine();
+
+		let car = {
 			make: makes[rand1],
 			model: models[rand2],
 			year: years[rand3],
 			color: colors[rand4],
 			passengers: rand5,
 			convertible: convertible[rand6],
-			mileage: 0
+			mileage: 0,
+            cylinder: eng.cylinder,
+            cc_volume: eng.cc_volume,
+            fuel: eng.fuel,
+            torque: eng.torque
 		};
 		return car;
 	}
 
-	function displayCar(car) {
-		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model);
-	}
+	function makeEngine() {
+        let cylinders = ["3", "4", "6", "8", "10", "12"];
+        let cc_volumes = ["1.4L", "1.6L", "1.8L", "2.0L", "4.8L"];
+        let fuel_types = ["diesel", "95", "98"];
+        let torques = ["150Nm", "200Nm", "400Nm", "600Nm", "800Nm"];
 
-	var carToSell = makeCar();
+        let rand1 = Math.floor(Math.random() * cylinders.length);
+        let rand2 = Math.floor(Math.random() * cc_volumes.length);
+        let rand3 = Math.floor(Math.random() * fuel_types.length);
+        let rand4 = Math.floor(Math.random() * torques.length);
+
+        let engine = {
+          cylinder: cylinders[rand1],
+          cc_volume: cc_volumes[rand2],
+          fuel: fuel_types[rand3],
+          torque: torques[rand4]
+        };
+        return engine;
+    }
+
+    function displayCar(car) {
+      console.log("Your new car is a " + car.year + " " + car.make + " " + car.model + ", with " + car.cylinder + " cylinder " + car.cc_volume + " " + car.fuel + " engine.");
+    }
+
+	let carToSell = makeCar();
 	displayCar(carToSell);
 
   </script>
