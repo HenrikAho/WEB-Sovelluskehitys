@@ -10,7 +10,7 @@
   </style>
   <script>
 window.onload = function() {
-	var div = document.getElementById("clickme");
+	let div = document.getElementById("clickme");
 	if (div.addEventListener) {
 		div.addEventListener("click", handleClick, false);
 	} else if (div.attachEvent) {
@@ -19,8 +19,8 @@ window.onload = function() {
 };
 
 function handleClick(e) {
-	var evt = e || window.event;
-	var target;
+	let evt = e || window.event;
+	let target;
 	if (evt.target) {
 		target = evt.target;
 	} else {
@@ -29,9 +29,30 @@ function handleClick(e) {
 	alert("You clicked on " + target.id);
 }
 
+window.onload = function() {
+  let div2 = document.getElementById("teksti");
+  if (div2.addEventListener) {
+    div2.addEventListener("mouseover", handleMouseOver, false);
+  } else if (div2.attachEvent) {
+    div2.attachEvent("mouseover", handleMouseOver);
+  }
+};
+
+function handleMouseOver(e) {
+  let evt = e || window.event;
+  let target;
+  if (evt.target) {
+    target = evt.target;
+  } else {
+    target = evt.srcElement;
+  }
+  alert("Your mouse is over " + target.id);
+}
+
   </script>
 </head>
 <body>
 <span id="clickme">Click me!</span>
+<div id="teksti">Laadukasta tekstiä</div>
 </body>
 </html>
