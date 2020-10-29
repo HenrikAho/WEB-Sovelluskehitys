@@ -39,7 +39,7 @@ function search(text) {
 					table.appendChild(row);
 				}
 				//console.log(booklist);
-				
+
 			} else {
 				console.error(xhr.statusText);
 			}
