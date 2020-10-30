@@ -6,8 +6,8 @@
 <script>
 
 String.prototype.palindrome = function() {
-	var len = this.length-1;
-	for (var i = 0; i <= len; i++) {
+	let len = this.length-1;
+	for (let i = 0; i <= len; i++) {
 		if (this.charAt(i) !== this.charAt(len-i)) {
 			return false;
 		}
@@ -22,19 +22,19 @@ String.prototype.palindrome = function() {
 // SUPER advanced way
 //
 String.prototype.palindromeAdv = function() {
-	var r = this.split("").reverse().join("");
+	let r = this.split("").reverse().join("");
 	return (r === this.valueOf());
 }
 
-var phrases = ["eve",
+let phrases = ["eve",
                "kayak",
                "mom",
                "wow",
                "noon",
                "Not a palindrome"];
 
-for (var i = 0; i < phrases.length; i++) {
-	var phrase = phrases[i];
+for (let i = 0; i < phrases.length; i++) {
+	let phrase = phrases[i];
 	if (phrase.palindrome()) {
 		console.log("'" + phrase + "' is a palindrome");
 	} else {
