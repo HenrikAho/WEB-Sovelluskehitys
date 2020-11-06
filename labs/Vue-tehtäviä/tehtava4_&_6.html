@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>Todo-lista</h2>
+    <ul class="list-unstyled">
+        <li v-for="todo in todos">
+            <label>
+                <span v-bind:class="{'done': todo.done}">{{todo.text}}</span>
+            </label>
+        </li>
+    </ul>
+    <p>
+        <input type="text" v-model="todoText" placeholder="kirjoita uusi tehtävä tähän" />
+        <button v-on:click="addTodo()" class="btn btn-primary btn-sm">Lisää</button>
+        <button v-on:click="removeToDo()" class="btn btn-primary btn-sm">Poista</button>
+    </p>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            todoText: '',
+            todos: [
+
+            ]
+        },
+        methods: {
+            addTodo: function() {
+                let newTodo = this.todoText.trim();
+                if (!newTodo) {return;}
+                this.todos.push(
+                    {text: newTodo, done: false}
+                );
+                this.todoText = '';
+            },
+            removeToDo: function() {
+                this.todos.shift();
+            }
+        }
+    });
+</script>
+</body>
+</html>

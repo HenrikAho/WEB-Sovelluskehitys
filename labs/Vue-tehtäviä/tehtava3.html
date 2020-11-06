@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button id="-" v-on:click="message -= 1">-</button>
+    <button id="0" v-on:click="message = 0">0</button>
+    <button id="+" v-on:click="message += 1">+</button>
+    <div>The playback speed is {{ message }}</div>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data :{
+            message: 0
+        }
+    });
+</script>
+</body>
+</html>
